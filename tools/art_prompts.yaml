@@ -1,0 +1,45 @@
+style: >
+  Painterly anime background illustration with thick, visible gouache and oil impasto brush strokes,
+  warm natural light, saturated blues and greens with warm peach and terracotta highlights, gentle
+  nostalgic slice-of-life mood. The scene is a vignette: the painting has irregular, organic,
+  loosely brushed edges that break off into a completely flat pure white (#FFFFFF) background, with
+  generous white margin on every side. No frame, no border, no text, no letters, no logo, no
+  watermark. People are small or seen from behind, with no recognizable faces. Landscape 3:2.
+task: >
+  Use your built-in image generation tool to generate exactly one image and save it as a PNG file at
+  the given output path inside the current working directory. Do not create or modify any other
+  file. Reply with the output path when done.
+images:
+  trail: >
+    One continuous panoramic landscape that reads from left to right like a hand scroll and follows
+    a single winding dirt footpath across the entire width. Far left: a bright midsummer alpine
+    meadow with wildflowers and distant snowy peaks. Moving right: a late-summer lakeside town with
+    red-tiled roofs, a small cafe terrace and paper lanterns; then an early-autumn city park with a
+    few modern office buildings behind the trees; far right: golden and red autumn trees lining the
+    path under a warm evening sky. The season and the light change gradually from summer noon on the
+    left to autumn dusk on the right. A single small hiker with a backpack, seen from behind, walks
+    on the path about two thirds of the way from the left. Composition: an extra-wide horizontal
+    band, about 2.6 times wider than tall, centered on the canvas with pure white above and below.
+  hike: >
+    A lone hiker with a small backpack and a tiny wearable camera clipped to the shirt, seen from
+    behind, walking a dirt trail across a summer alpine meadow full of wildflowers, snow-capped
+    mountains and big cumulus clouds in the distance.
+  hotpot: >
+    A cozy evening restaurant table with a steaming traditional copper-pot charcoal hotpot in the
+    center, plates of thinly sliced meat and small dipping bowls around it, the hands and arms of a
+    few friends reaching in with chopsticks, warm lantern light.
+  editing: >
+    A person seen from behind at a wooden desk by a window at dusk, editing a video on a laptop with
+    a colorful timeline on screen, hand-drawn storyboard sheets pinned to the wall, a desk lamp
+    glowing, city roofs outside.
+  desk: >
+    A tidy office desk at lunch break in bright daylight, two monitors, a keyboard, a paper cup, and
+    a glossy black motorcycle helmet resting on the desk as the clear focal point, large windows and
+    potted plants behind.
+  gym: >
+    A person in sportswear with a gym bag, seen from behind, stepping out of the glass door of a
+    small neighborhood gym onto a quiet street at blue hour, warm light spilling from inside, street
+    lamps and trees.
+  fan: >
+    A close view of a work desk with an open black laptop and a small white USB desk fan right next
+    to it as the clear focal point, a notebook and a mug nearby, soft afternoon window light.
