@@ -25,7 +25,7 @@ const BOARD = [
   ['GPT-5.6 Terra', 'openai', null, ['max', 59], 0],
   ['GPT-6 Luna', 'openai', null, ['xhigh', 57], 0],
   ['Muse Spark 1.3', 'meta', ['xhigh', 57], null, 0],
-  ['DeepSeek-V4.1-Flash', 'deepseek', ['high', 54], null, 1],
+  ['DeepSeek-V4.1-Flash-1017', 'deepseek', ['high', 54], null, 1],
   ['Mistral Large 4', 'mistral', ['high', 52], null, 0],
   ['GLM-5.3-Flash', 'zai', null, ['max', 47], 1],
   ['Qwen3.8-Flash', 'qwen', null, ['xhigh', 46], 0],
