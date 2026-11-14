@@ -9,7 +9,7 @@ const CAPS = [
   ['Personalization', 'hotpot', 'A copper-pot hotpot shared with friends', 410, 6, 'Which familiar meal would you put first for my relaxed get-together?', 'Copper-pot hotpot with sliced meat'],
   ['Memory', 'desk', 'An office desk with a black helmet on it', 430, 4, 'What unusual item was on my office desk during my lunch break on August 13?', 'A black helmet'],
   ['Proactive', 'gym', 'A person leaving a gym in the evening', 264, 3, 'As I leave the gym at 8 p.m. on October 12, which reading message fits me best?', '“…The Art of War\'s five factors…”'],
-  ['Grounding', 'fan', 'A desk with a laptop and a small white fan', 223, 3, 'In my September 21 office photo, what was beside the open black laptop?', 'A small white fan'],
+  ['Grounding', 'fan', 'A desk with a laptop and a small white fan', 223, 3, 'In my September 21 office photo, what was beside the open black laptop?', 'A small white fan with a round grille'],
 ];
 
 const BOARD = [
@@ -25,7 +25,7 @@ const BOARD = [
   ['GPT-5.6 Terra', 'openai', null, ['max', 59], 0],
   ['GPT-6 Luna', 'openai', null, ['xhigh', 57], 0],
   ['Muse Spark 1.3', 'meta', ['xhigh', 57], null, 0],
-  ['DeepSeek-V4.1-Flash-1017', 'deepseek', ['high', 54], null, 1],
+  ['DeepSeek-V4.1-Flash', 'deepseek', ['high', 54], null, 1],
   ['Mistral Large 4', 'mistral', ['high', 52], null, 0],
   ['GLM-5.3-Flash', 'zai', null, ['max', 47], 1],
   ['Qwen3.8-Flash', 'qwen', null, ['xhigh', 46], 0],
@@ -132,8 +132,9 @@ function caps() {
 function board() {
   const fig = $('#fig-board'), more = $('.more', fig);
   const best = (m) => Math.max(m[2] ? m[2][1] : 0, m[3] ? m[3][1] : 0);
+  const base = (m) => (m[2] ? m[2][1] : 0);
   const side = (label, s) => (s ? `${label} effort (${s[0]}): ${s[1]}%<br>` : '');
-  $('.board-rows', fig).innerHTML = [...BOARD].sort((a, b) => best(b) - best(a)).map((m, i) => `<div class="row" data-tip="<b>${m[0]}</b>${side('default', m[2])}${side('highest', m[3])}${m[4] ? 'open-weight model' : ''}">
+  $('.board-rows', fig).innerHTML = [...BOARD].sort((a, b) => best(b) - best(a) || base(b) - base(a)).map((m, i) => `<div class="row" data-tip="<b>${m[0]}</b>${side('default', m[2])}${side('highest', m[3])}${m[4] ? 'open-weight model' : ''}">
     <span class="rk">${i + 1}</span><span class="nm${m[4] ? ' open' : ''}"><img class="logo" src="assets/logos/${m[1]}.png" alt=""><span>${m[0]}</span></span>
     <span class="tk"><i style="--v:${best(m) / 80 * 100};--i:${i % 10}"></i></span><span class="v">${best(m)}</span></div>`).join('');
   more.addEventListener('click', () => {

@@ -87,7 +87,7 @@
 
 <section id="why">
   <p class="lead rv">Personal assistants now act for a user over weeks and months. They must recall the user's past, follow how preferences change, and decide when to step in.</p>
-  <p class="rv">We collect <b>LifeAtlas</b>, more than 180k multimodal life records with photos, audio transcripts, locations, and assistant chats, from more than 150 users who wore a lifelogging camera for up to three months. On top of it we build <b>LifeTrail</b>, 1,327 multiple-choice questions across 16 tasks in four capabilities. Every question allows only records before its anchor time and is reviewed by the user whose records it uses.</p>
+  <p class="rv">We collect <b>LifeAtlas</b>, more than 180k multimodal life records with photos, audio transcripts, locations, and assistant chats, from more than 150 users who wore a lifelogging camera for up to three months. On top of it we build <b>LifeTrail</b>, 1,327 multiple-choice questions across 16 tasks in four capabilities. Every question allows only records before its anchor time, and every released question passes cross-model validation and human review.</p>
 </section>
 
 <section id="example">
@@ -122,29 +122,31 @@
 
 <section id="engine">
   <p class="kicker rv">Agentic data engine</p>
-  <h2 class="rv">Every question is grounded, verified, and reviewed by its user</h2>
+  <h2 class="rv">Every question is grounded in records, cross-validated, and reviewed by people</h2>
   <ol class="steps rv">
-    <li style="--d:0"><b>Sample</b><span>Task-specific samplers draw evidence from the records before an anchor time.</span></li>
-    <li style="--d:1"><b>Write</b><span>An agent writes a first-person question with verbatim evidence quotes.</span></li>
-    <li style="--d:2"><b>Verify</b><span>Local checks, a blind review, and a counter-evidence audit filter every candidate.</span></li>
-    <li style="--d:3"><b>Review</b><span>The user whose records are used checks each released question.</span></li>
+    <li style="--d:0"><b>Sample</b><span>Task-specific samplers draw evidence packets from the records before an anchor time.</span></li>
+    <li style="--d:1"><b>Write</b><span>With human-written seed questions as examples, an agent writes a first-person question with verbatim evidence quotes.</span></li>
+    <li style="--d:2"><b>Verify</b><span>Local checks, a blind review, two other models, and a counter-evidence audit filter every candidate.</span></li>
+    <li style="--d:3"><b>Review</b><span>Users endorse the personalization and proactive questions built from their own records. Engineers check the memory and grounding questions.</span></li>
   </ol>
 </section>
 
 <section id="findings">
   <p class="kicker rv">Findings</p>
   <h2 class="rv">Finding the right records is the main bottleneck</h2>
+  <p class="rv">Three memory systems (A-MEM, Mem0, MemFit) and four RAG methods answer all 1,327 questions with three answer models, between a no-evidence lower bound and a gold-evidence upper bound.</p>
   <div class="finds">
-    <div class="find rv" style="--d:0"><b>15+</b><span>points</span><p>Every memory system and retrieval method stays at least 15 points below gold evidence.</p></div>
-    <div class="find rv" style="--d:1"><b>+10.9 <i>/</i> −15.6</b><span>points</span><p>Agentic RAG gains on memory recall and loses on personalization against reranked Multimodal RAG (Qwen3.8-Flash).</p></div>
-    <div class="find rv" style="--d:2"><b>&lt;36.1%</b><span>chance level</span><p>On proactive inference, two of three answer models stay below chance even with gold evidence.</p></div>
+    <div class="find rv" style="--d:0"><b>15+</b><span>points below gold evidence</span><p>A-MEM or Mem0 gives the highest overall accuracy for every answer model, yet every memory and RAG method stays at least 15 points below gold evidence.</p></div>
+    <div class="find rv" style="--d:1"><b>8–16</b><span>points from the answer model</span><p>GPT-6 Luna with medium thinking exceeds both flash models by 8 to 16 points under every memory and non-agentic RAG method. Agentic RAG is the only method on which it does not lead.</p></div>
+    <div class="find rv" style="--d:2"><b>16–31</b><span>points on updated facts</span><p>A-MEM and Mem0 organize the history before a question arrives and exceed Agentic RAG by 16 to 31 points on updated facts. Against reranked Multimodal RAG, Agentic RAG gains on recall and visual grounding and loses on personalization.</p></div>
+    <div class="find rv" style="--d:3"><b>&lt;36.1%</b><span>chance level</span><p>On proactive inference, two of three answer models stay below chance even with gold evidence. Thinking at xhigh raises the proactive accuracy of Qwen3.8-Flash by 26.9 points.</p></div>
   </div>
 </section>
 
 <section id="board">
   <p class="kicker rv">LifeTrail-Hard</p>
   <h2 class="rv">The strongest of 22 frontier models reaches 74%</h2>
-  <p class="rv">100 questions that cover all 16 tasks, answered with Agentic RAG and up to 15 tool calls.</p>
+  <p class="rv">100 questions that cover all 16 tasks, answered with Agentic RAG and up to 15 tool calls. Higher reasoning effort raises accuracy for most models, while raising the tool-call limit from 16 to 32 changes it by at most two points.</p>
   <figure class="board rv" id="fig-board">
     <div class="board-rows"></div>
     <button class="more" type="button">Show all 22 models</button>
